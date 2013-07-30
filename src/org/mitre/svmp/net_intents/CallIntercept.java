@@ -23,13 +23,17 @@ import org.mitre.svmp.protocol.SVMPProtocol.Response.ResponseType;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class CallIntercept extends Activity
 {
+	private static final String TAG="CALL INTERCEPT";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
+		Log.i(TAG,"INTERCEPTED CALL!");
+		Log.i(TAG,"CALL DATA: "+getIntent().getDataString());
 		Response response = Response.newBuilder()
 				.setType(ResponseType.INTENT)
 				.setIntent(
@@ -38,7 +42,8 @@ public class CallIntercept extends Activity
 						.setData(getIntent().getDataString())
 						.build()
 						).build();
-		BackgroundService.sendMessage(response);
+		NotificationBroadcastReceiver.sendMessage(getBaseContext(),response);
+		Log.i(TAG,"SENT CALL DATA TO NETTY!");
 		finish();
 	}
 }

@@ -38,13 +38,6 @@ public class BackgroundService extends Service {
         nettyClient.setDaemon(true);
         nettyClient.start();
     }
-    
-    //Send an Intent or Notification to Netty.
-    public static void sendMessage(Response response)
-    {
-    	if(nettyClient != null)
-    		nettyClient.sendMessage(response);
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
