@@ -51,9 +51,9 @@ public class NotificationBroadcastReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) 
     {
-        if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) 
+        if(intent.getAction().equals("org.mitre.svmp.action.BOOT_COMPLETED"))
         {
-            Log.d(TAG, "Received system boot intent broadcast");
+            Log.d(TAG, "Received SVMP boot intent broadcast");
 
             // we have to send a handshake to the Netty server on the EventServer so it
             // is aware of our socket channel and can push messages to us
