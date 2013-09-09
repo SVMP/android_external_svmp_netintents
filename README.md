@@ -1,3 +1,9 @@
+This repository is obsolete as of Sept. 9, 2013.
+
+The netintents helper has been merged with the input event server. Please
+refer to SVMP/android_external_svmp_eventserver for the current intent and 
+notification forwarding code.
+
 License
 =======
 Copyright (c) 2012-2013, The MITRE Corporation, All Rights Reserved.
